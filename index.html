@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Shyam Sarkar Restaurant</title>
 
@@ -23,31 +23,55 @@ padding:25px;
 
 header h1{
 margin:0;
-font-size:38px;
+font-size:34px;
 }
 
 header p{
-font-size:18px;
+margin:5px;
 }
 
-.hero{
-text-align:center;
-padding:70px 20px;
-background:url('https://images.unsplash.com/photo-1550547660-d9450f859349') center/cover;
+.slider{
+width:100%;
+height:220px;
+overflow:hidden;
 }
 
-.hero h2{
-font-size:40px;
+.slides{
+display:flex;
+width:500%;
+animation:slide 20s infinite;
+}
+
+.slides img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+@keyframes slide{
+
+0%{margin-left:0;}
+20%{margin-left:0;}
+
+25%{margin-left:-100%;}
+45%{margin-left:-100%;}
+
+50%{margin-left:-200%;}
+70%{margin-left:-200%;}
+
+75%{margin-left:-300%;}
+95%{margin-left:-300%;}
+
 }
 
 .section{
-padding:50px 20px;
+padding:40px 20px;
 text-align:center;
 }
 
 .menu-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 gap:20px;
 }
 
@@ -55,7 +79,6 @@ gap:20px;
 background:#222;
 border-radius:10px;
 overflow:hidden;
-padding-bottom:10px;
 }
 
 .menu-card img{
@@ -68,54 +91,46 @@ object-fit:cover;
 color:#ff3c00;
 }
 
-.owner img{
-width:160px;
-border-radius:50%;
-border:4px solid #ff3c00;
+.rating{
+color:gold;
 }
 
-.review-box{
-background:#222;
-padding:20px;
-border-radius:10px;
-margin:10px;
+form{
+max-width:400px;
+margin:auto;
+display:flex;
+flex-direction:column;
 }
 
-.review-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.contact{
-background:#222;
-padding:40px;
-}
-
-.btn{
-display:inline-block;
-margin:10px;
-padding:12px 22px;
+input,select{
+padding:10px;
+margin:10px 0;
+border:none;
 border-radius:6px;
-text-decoration:none;
+}
+
+button{
+padding:12px;
+background:#ff3c00;
 color:white;
+border:none;
+border-radius:6px;
 }
 
 .whatsapp{
 background:#25D366;
+display:inline-block;
+padding:12px 20px;
+margin-top:15px;
+color:white;
+text-decoration:none;
+border-radius:6px;
 }
 
-.email{
-background:#ff3c00;
-}
-
-.order{
-background:#007bff;
-}
-
-.qr img{
-width:180px;
-margin-top:20px;
+.owner img{
+width:140px;
+border-radius:50%;
+border:4px solid #ff3c00;
 }
 
 footer{
@@ -125,71 +140,134 @@ padding:15px;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 <h1>SHYAM SARKAR RESTAURANT</h1>
 <p>& YADAV TEA STALL</p>
+
 </header>
 
-<section class="hero">
-<h2>Delicious Fast Food & Tea</h2>
-<p>Fresh • Tasty • Affordable</p>
-</section>
+
+<div class="slider">
+
+<div class="slides">
+
+<img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg">
+<img src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg">
+<img src="https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg">
+<img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg">
+
+</div>
+
+</div>
+
 
 <section class="section">
 
-<h2>OUR MENU</h2>
+<h2>FAST FOOD MENU</h2>
 
 <div class="menu-grid">
 
 <div class="menu-card">
-<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg">
 <h3>Burger</h3>
-<p>Veg Burger ₹60</p>
-<p>Cheese Burger ₹80</p>
+<div class="rating">⭐⭐⭐⭐⭐</div>
 </div>
 
 <div class="menu-card">
-<img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65">
+<img src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg">
 <h3>Pizza</h3>
-<p>Margherita ₹120</p>
-<p>Veg Loaded ₹150</p>
+<div class="rating">⭐⭐⭐⭐⭐</div>
 </div>
 
 <div class="menu-card">
-<img src="https://images.unsplash.com/photo-1604908176997-4319b7c88f0e">
+<img src="https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg">
 <h3>Sandwich</h3>
-<p>Veg Sandwich ₹50</p>
-<p>Grilled Sandwich ₹70</p>
+<div class="rating">⭐⭐⭐⭐</div>
 </div>
 
 <div class="menu-card">
-<img src="https://images.unsplash.com/photo-1585238342028-4b2a21e0b9a6">
-<h3>Snacks</h3>
-<p>French Fries ₹60</p>
-<p>Veg Roll ₹70</p>
+<img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg">
+<h3>French Fries</h3>
+<div class="rating">⭐⭐⭐⭐</div>
 </div>
 
 <div class="menu-card">
-<img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
-<h3>Tea</h3>
-<p>Normal Tea ₹20</p>
-<p>Special Tea ₹30</p>
+<img src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg">
+<h3>Noodles</h3>
+<div class="rating">⭐⭐⭐⭐</div>
 </div>
 
 <div class="menu-card">
-<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
-<h3>Coffee</h3>
-<p>Hot Coffee ₹40</p>
-<p>Cold Coffee ₹70</p>
+<img src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg">
+<h3>Veg Momos</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+</div>
+
+<div class="menu-card">
+<img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg">
+<h3>Pasta</h3>
+<div class="rating">⭐⭐⭐⭐⭐</div>
+</div>
+
+<div class="menu-card">
+<img src="https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg">
+<h3>Hot Dog</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+</div>
+
+<div class="menu-card">
+<img src="https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg">
+<h3>Paneer Burger</h3>
+<div class="rating">⭐⭐⭐⭐</div>
+</div>
+
+<div class="menu-card">
+<img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg">
+<h3>Spring Roll</h3>
+<div class="rating">⭐⭐⭐⭐</div>
 </div>
 
 </div>
 
 </section>
+
+
+<section class="section">
+
+<h2>ONLINE ORDER</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="tel" placeholder="Phone Number" required>
+
+<select>
+
+<option>Select Food Item</option>
+<option>Burger</option>
+<option>Pizza</option>
+<option>Sandwich</option>
+<option>Noodles</option>
+<option>Tea</option>
+<option>Coffee</option>
+
+</select>
+
+<button>Place Order</button>
+
+</form>
+
+<a class="whatsapp" href="https://wa.me/919999999999">Order on WhatsApp</a>
+
+</section>
+
 
 <section class="section owner">
 
@@ -197,60 +275,19 @@ padding:15px;
 
 <img src="owner.jpg">
 
-<p>Welcome to SHYAM SARKAR RESTAURANT & YADAV TEA STALL</p>
+<p>Welcome to Shyam Sarkar Restaurant</p>
 
 </section>
+
 
 <section class="section">
 
-<h2>CUSTOMER REVIEWS</h2>
+<h2>LOCATION</h2>
 
-<div class="review-grid">
-
-<div class="review-box">
-⭐⭐⭐⭐⭐  
-<p>Very tasty food and good service.</p>
-<b>Rahul</b>
-</div>
-
-<div class="review-box">
-⭐⭐⭐⭐⭐  
-<p>Best tea and snacks in this area.</p>
-<b>Aman</b>
-</div>
-
-<div class="review-box">
-⭐⭐⭐⭐  
-<p>Pizza and burger quality is very good.</p>
-<b>Priya</b>
-</div>
-
-</div>
+<p>Village Sigra, District Mahendergarh, Haryana</p>
 
 </section>
 
-<section class="section contact">
-
-<h2>CONTACT US</h2>
-
-<p>Email: arunwebsitedesigner29@gmail.com</p>
-
-<p>Location: Village Sigra, District Mahendergarh, Haryana</p>
-
-<a class="btn whatsapp" href="https://wa.me/919999999999">Order on WhatsApp</a>
-
-<a class="btn order" href="https://wa.me/919999999999?text=I want to order food">Online Order</a>
-
-<a class="btn email" href="mailto:arunwebsitedesigner29@gmail.com">Send Email</a>
-
-<div class="qr">
-<h3>Scan QR Code</h3>
-
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://arunyadav08.github.io/shyam-sarkar-restaurant/">
-
-</div>
-
-</section>
 
 <footer>
 
@@ -259,4 +296,5 @@ padding:15px;
 </footer>
 
 </body>
+
 </html>
