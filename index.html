@@ -1,16 +1,15 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Shyam Sarkar Restaurant</title>
+<title>SHYAM SARKAR RESTAURANT</title>
 
 <style>
 
 body{
-margin:0;
 font-family:Arial;
+margin:0;
 background:#111;
 color:white;
 }
@@ -21,14 +20,7 @@ text-align:center;
 padding:25px;
 }
 
-header h1{
-margin:0;
-font-size:34px;
-}
-
-header p{
-margin:5px;
-}
+/* FOOD SLIDER */
 
 .slider{
 width:100%;
@@ -36,49 +28,27 @@ height:220px;
 overflow:hidden;
 }
 
-.slides{
-display:flex;
-width:500%;
-animation:slide 20s infinite;
-}
-
-.slides img{
+.slider img{
 width:100%;
 height:220px;
 object-fit:cover;
+display:none;
 }
 
-@keyframes slide{
-
-0%{margin-left:0;}
-20%{margin-left:0;}
-
-25%{margin-left:-100%;}
-45%{margin-left:-100%;}
-
-50%{margin-left:-200%;}
-70%{margin-left:-200%;}
-
-75%{margin-left:-300%;}
-95%{margin-left:-300%;}
-
-}
-
-.section{
-padding:40px 20px;
-text-align:center;
-}
+/* MENU */
 
 .menu-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
+padding:30px;
 }
 
 .menu-card{
 background:#222;
 border-radius:10px;
 overflow:hidden;
+cursor:pointer;
 }
 
 .menu-card img{
@@ -88,58 +58,94 @@ object-fit:cover;
 }
 
 .menu-card h3{
+text-align:center;
 color:#ff3c00;
 }
 
-.rating{
-color:gold;
-}
-
-form{
-max-width:400px;
-margin:auto;
-display:flex;
-flex-direction:column;
-}
-
-input,select{
+.submenu{
+display:none;
+background:#333;
 padding:10px;
-margin:10px 0;
-border:none;
-border-radius:6px;
 }
 
-button{
-padding:12px;
-background:#ff3c00;
-color:white;
-border:none;
-border-radius:6px;
+.submenu div{
+padding:6px;
+border-bottom:1px solid #555;
+}
+
+.section{
+padding:40px;
+text-align:center;
 }
 
 .whatsapp{
 background:#25D366;
-display:inline-block;
-padding:12px 20px;
-margin-top:15px;
 color:white;
+padding:12px 20px;
 text-decoration:none;
 border-radius:6px;
+display:inline-block;
+margin-top:10px;
+}
+
+.review{
+background:#222;
+margin:10px;
+padding:15px;
+border-radius:8px;
 }
 
 .owner img{
-width:140px;
+width:150px;
 border-radius:50%;
 border:4px solid #ff3c00;
 }
 
-footer{
-background:#000;
-text-align:center;
-padding:15px;
+</style>
+
+<script>
+
+function toggle(id){
+
+var x=document.getElementById(id);
+
+if(x.style.display==="block"){
+x.style.display="none";
+}else{
+x.style.display="block";
 }
 
-</style>
+}
+
+/* FOOD SLIDER */
+
+var slideIndex=0;
+
+function slider(){
+
+var i;
+
+var slides=document.getElementsByClassName("slide");
+
+for(i=0;i<slides.length;i++){
+slides[i].style.display="none";
+}
+
+slideIndex++;
+
+if(slideIndex>slides.length){
+slideIndex=1;
+}
+
+slides[slideIndex-1].style.display="block";
+
+setTimeout(slider,3000);
+
+}
+
+window.onload=slider;
+
+</script>
 
 </head>
 
@@ -152,149 +158,136 @@ padding:15px;
 
 </header>
 
+<!-- FOOD SLIDER -->
 
 <div class="slider">
 
-<div class="slides">
-
-<img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg">
-<img src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg">
-<img src="https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg">
-<img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg">
-
-</div>
+<img class="slide" src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg">
+<img class="slide" src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg">
+<img class="slide" src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg">
+<img class="slide" src="https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg">
+<img class="slide" src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg">
 
 </div>
 
-
-<section class="section">
-
-<h2>FAST FOOD MENU</h2>
+<!-- MENU -->
 
 <div class="menu-grid">
 
-<div class="menu-card">
+<div class="menu-card" onclick="toggle('burger')">
 <img src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg">
 <h3>Burger</h3>
-<div class="rating">⭐⭐⭐⭐⭐</div>
+<div class="submenu" id="burger">
+<div>Veg Burger</div>
+<div>Cheese Burger</div>
+<div>Paneer Burger</div>
+<div>Chicken Burger</div>
+<div>Double Burger</div>
+<div>Spicy Burger</div>
+<div>Special Burger</div>
+</div>
 </div>
 
-<div class="menu-card">
+<div class="menu-card" onclick="toggle('pizza')">
 <img src="https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg">
 <h3>Pizza</h3>
-<div class="rating">⭐⭐⭐⭐⭐</div>
+<div class="submenu" id="pizza">
+<div>Veg Pizza</div>
+<div>Cheese Pizza</div>
+<div>Paneer Pizza</div>
+<div>Corn Pizza</div>
+<div>Farmhouse Pizza</div>
+<div>Onion Pizza</div>
+<div>Special Pizza</div>
+</div>
 </div>
 
-<div class="menu-card">
-<img src="https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg">
-<h3>Sandwich</h3>
-<div class="rating">⭐⭐⭐⭐</div>
-</div>
-
-<div class="menu-card">
-<img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg">
-<h3>French Fries</h3>
-<div class="rating">⭐⭐⭐⭐</div>
-</div>
-
-<div class="menu-card">
+<div class="menu-card" onclick="toggle('noodles')">
 <img src="https://images.pexels.com/photos/461382/pexels-photo-461382.jpeg">
 <h3>Noodles</h3>
-<div class="rating">⭐⭐⭐⭐</div>
+<div class="submenu" id="noodles">
+<div>Veg Noodles</div>
+<div>Hakka Noodles</div>
+<div>Paneer Noodles</div>
+<div>Chicken Noodles</div>
+<div>Egg Noodles</div>
+<div>Spicy Noodles</div>
+<div>Special Noodles</div>
+</div>
 </div>
 
-<div class="menu-card">
-<img src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg">
-<h3>Veg Momos</h3>
-<div class="rating">⭐⭐⭐⭐</div>
+<div class="menu-card" onclick="toggle('ice')">
+<img src="https://images.pexels.com/photos/1352278/pexels-photo-1352278.jpeg">
+<h3>Ice Cream</h3>
+<div class="submenu" id="ice">
+<div>Vanilla</div>
+<div>Chocolate</div>
+<div>Strawberry</div>
+<div>Mango</div>
+<div>Butterscotch</div>
+<div>Oreo</div>
+<div>Special Ice Cream</div>
+</div>
 </div>
 
-<div class="menu-card">
-<img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg">
-<h3>Pasta</h3>
-<div class="rating">⭐⭐⭐⭐⭐</div>
+<div class="menu-card" onclick="toggle('drink')">
+<img src="https://images.pexels.com/photos/616833/pexels-photo-616833.jpeg">
+<h3>Cold Drinks</h3>
+<div class="submenu" id="drink">
+<div>Coca Cola</div>
+<div>Pepsi</div>
+<div>Sprite</div>
+<div>Fanta</div>
+<div>Limca</div>
+<div>Mountain Dew</div>
+<div>Thumbs Up</div>
 </div>
-
-<div class="menu-card">
-<img src="https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg">
-<h3>Hot Dog</h3>
-<div class="rating">⭐⭐⭐⭐</div>
-</div>
-
-<div class="menu-card">
-<img src="https://images.pexels.com/photos/3026808/pexels-photo-3026808.jpeg">
-<h3>Paneer Burger</h3>
-<div class="rating">⭐⭐⭐⭐</div>
-</div>
-
-<div class="menu-card">
-<img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg">
-<h3>Spring Roll</h3>
-<div class="rating">⭐⭐⭐⭐</div>
 </div>
 
 </div>
 
-</section>
+<!-- REVIEWS -->
 
+<div class="section">
 
-<section class="section">
+<h2>Customer Reviews</h2>
 
-<h2>ONLINE ORDER</h2>
+<div class="review">⭐⭐⭐⭐⭐ Very tasty food!</div>
+<div class="review">⭐⭐⭐⭐ Good service.</div>
+<div class="review">⭐⭐⭐⭐⭐ Best tea in the village.</div>
 
-<form>
+</div>
 
-<input type="text" placeholder="Your Name" required>
+<!-- OWNER -->
 
-<input type="tel" placeholder="Phone Number" required>
+<div class="section owner">
 
-<select>
-
-<option>Select Food Item</option>
-<option>Burger</option>
-<option>Pizza</option>
-<option>Sandwich</option>
-<option>Noodles</option>
-<option>Tea</option>
-<option>Coffee</option>
-
-</select>
-
-<button>Place Order</button>
-
-</form>
-
-<a class="whatsapp" href="https://wa.me/919999999999">Order on WhatsApp</a>
-
-</section>
-
-
-<section class="section owner">
-
-<h2>OWNER</h2>
+<h2>Owner</h2>
 
 <img src="owner.jpg">
 
-<p>Welcome to Shyam Sarkar Restaurant</p>
+<p>Owner Photo</p>
 
-</section>
+</div>
 
+<!-- CONTACT -->
 
-<section class="section">
+<div class="section">
 
-<h2>LOCATION</h2>
+<h2>Contact</h2>
+
+<p>Mobile: 9999999999</p>
+
+<a class="whatsapp" href="https://wa.me/919999999999">
+
+Order on WhatsApp
+
+</a>
 
 <p>Village Sigra, District Mahendergarh, Haryana</p>
 
-</section>
-
-
-<footer>
-
-<p>© 2026 SHYAM SARKAR RESTAURANT</p>
-
-</footer>
+</div>
 
 </body>
-
 </html>
+```
